@@ -23,8 +23,7 @@ def scrape_data():
     scraped_data = scrape_mars.scrape()
     mars_db = client.mars
     data = mars_db.mars_data
-    data.delete_many({})
-    data.insert(scraped_data)
+    data.update({}, scraped_data, upsert=True)
     return redirect("/", code=302)
 
 if __name__ == "__main__":

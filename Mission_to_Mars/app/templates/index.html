@@ -10,11 +10,11 @@
   <style>
     body {
       color: #fff9f9;
-      background-color: black;
+      background-image: url('https://static.americanmensa.org/Assets/MFK2/assets/Image/Teach/LessonPlans/Mission-to-Mars_Mars_750x350.png');
     }
 
     .jumbotron {
-      background-image: url('http://t.wallpaperweb.org/wallpaper/space/1920x1080/1257942126117.jpg');
+      background-color: black;
     }
 
     .btn {
@@ -27,7 +27,7 @@
 <body>
   <div class="containerfluid">
     <div class="jumbotron text-center">
-      <h1>Mars Data</h1>
+      <h1>Mission To Mars</h1>
       <a href="/scrape" class="btn btn-info" role="button">Scrape New Data</a>
     </div>
   </div>
@@ -45,26 +45,28 @@
       <div class="row">
         <div class="col-md-12">
           <table class="table table-sm table-striped table-bordered table-responsive-lg">
-            {{data.data_table | safe }}
+          {{data.data_table | safe }}
           </table>
         </div>
       </div>
     </div>
-
-    <div class="col-md-4">
-      <div class="row">
+    <br>
+    <div class="row">
+      <div class="col-md-4">
         <div class="col-md-12">
-          {% for hemisphere in data.items %}
-          <div class="col-md-6"><img src="{{ hemisphere["img_url"] }}" class="img-responsive" alt="Responsive image">
+          {% for hemisphere in data.items() %}
+            <div class="col-md-6"><img src="{{ hemisphere["img_url"] }}" class="img-responsive" alt="Responsive image">
             <h4>{{hemisphere.title}}</h4>
-          </div>
+            </div>
           {% endfor %}
         </div>
+      </div>
+    </div>
         <div class="col-md-12">
-          {% for hemisphere in data.items %}
-          <div class="col-md-6"><img src="{{ hemisphere["img_url"] }}" class="img-responsive" alt="Responsive image">
+          {% for hemisphere in data.items() %}
+            <div class="col-md-6"><img src="{{ hemisphere["img_url"] }}" class="img-responsive" alt="Responsive image">
             <h4>{{hemisphere.title}}</h4>
-          </div>
+            </div>
           {% endfor %}
         </div>
       </div>
