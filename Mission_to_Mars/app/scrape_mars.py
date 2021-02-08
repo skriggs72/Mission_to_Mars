@@ -13,7 +13,7 @@ def init_browser():
 def scrape():
     browser = init_browser()
     
-    # NASA Mars News Titles
+   # NASA Mars News Titles
     url='https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
     
     browser.visit(url)
@@ -24,13 +24,13 @@ def scrape():
     html = browser.html
     soup = bs(html, "html.parser")
     article_title = soup.find_all('li', class_='slide')[0]
-    article_title = article_title.find('div', {"class":'content_title'}).text.strip()
+    article_title = article_title.find('div', {"class":'content_title'})
     article_title = article_title.find('a').get('href')
     print(f' ARTICLE TITLE: {article_title}')
     
     # NASA Mars News Text
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
-    article_p = soup.find('div', class_='rollover_description_inner').text.strip()
+    article_p = soup.find('div', class_='article_teaser_body').text.strip()
 
     # Mars Facts
     mars_df = pd.read_html('http://space-facts.com/mars/',attrs={'id':'tablepress-p-mars-no-2'})
@@ -65,5 +65,5 @@ def scrape():
         'data_table': mars_df_html,
         'hemisphere': image_url
     }
-    print(f' Data from Mars: {mars_data}')
+#     print(f' Data from Mars: {mars_data}')
     return mars_data
