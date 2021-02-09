@@ -1,0 +1,15 @@
+body {
+    color: #fff9f9;
+    background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fnews.cgtn.com%2Fnews%2F3d3d414f7a45544f34457a6333566d54%2Findex.html&psig=AOvVaw1S4DXTffOYk9Ty2IrZDIPN&ust=1612962191314000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDgxsbu3O4CFQAAAAAdAAAAABAD');
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  .jumbotron {
+    background-color: black;
+  }
+
+  .btn {
+    background-color: white;
+    border-color: black;
+  }

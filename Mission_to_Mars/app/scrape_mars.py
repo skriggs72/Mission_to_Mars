@@ -25,7 +25,7 @@ def scrape():
     soup = bs(html, "html.parser")
     article_title = soup.find_all('li', class_='slide')[0]
     article_title = article_title.find('div', {"class":'content_title'})
-    article_title = article_title.find('a').get('href')
+    article_title = article_title.find('a').get_text()
     print(f' ARTICLE TITLE: {article_title}')
     
     # NASA Mars News Text
